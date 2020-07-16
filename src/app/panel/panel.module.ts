@@ -23,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
+
 //servicios
 
 
@@ -51,7 +52,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule
-
   ],
   exports: [
     MainComponent,
@@ -69,7 +69,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule
-
   ],
   providers: []
 

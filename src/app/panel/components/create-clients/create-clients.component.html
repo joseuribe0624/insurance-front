@@ -1,6 +1,13 @@
 <div class="col-lg-10">
   <h3>{{page_title}}</h3>
   <hr/>
+  <div class="alert alert-sucess col-md-5 mt-3" *ngIf="status == 'success' ">
+    El Cliente se ha creado correctamente
+  </div>
+
+  <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error' ">
+    El Cliente no se ha podido crear
+  </div>
   <form #addClient="ngForm" (ngSubmit)="onSubmit(addClient)">
     <div class="form-group">
       <label for="referred">REFERIDO DE:</label>
@@ -21,7 +28,7 @@
     <div class="form-group">
       <label for="emailClient">EMAIL CLIENTE:</label>
       <input type="text" name="emailClient" #emailClient="ngModel" [(ngModel)] = "client.email_client"
-      required class="form-control"/>
+      required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control"/>
       <small *ngIf="!emailClient.valid && emailClient.touched" class="invalid-feedback d-block">
         se debe llenar campo
       </small>

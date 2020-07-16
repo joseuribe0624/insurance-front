@@ -13,10 +13,6 @@ export class UserService{
     this.url = global.url;
   }
 
-  prueba(){
-    return "hola world desde service";
-  }
-
   register(user): Observable<any>{
     //convertir el objeto del usuario a un json string
     let params = JSON.stringify(user);

@@ -14,14 +14,10 @@ export class ClientService{
     this.url = global.url
   }
 
-  prueba(){
-    return "Hola mundo desde el Client service";
-  }
-
   addClient(token,client): Observable<any> {
     let params = JSON.stringify(client);
     let headers = new HttpHeaders().set('Content-type', 'application/json')
                                    .set('Authorization', token);
-    return this._http.post(this.url+'client',params, {headers: headers});
+    return this._http.post(this.url+'create_client',params, {headers: headers});
   }
 }
