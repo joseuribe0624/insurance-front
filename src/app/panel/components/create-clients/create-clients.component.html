@@ -1,0 +1,87 @@
+<div class="col-lg-10">
+  <h3>{{page_title}}</h3>
+  <hr/>
+  <form #addClient="ngForm" (ngSubmit)="onSubmit(addClient)">
+    <div class="form-group">
+      <label for="referred">REFERIDO DE:</label>
+      <input type="text" name="referred" #referred="ngModel" [(ngModel)] = "client.referred_from"
+      required class="form-control"/>
+      <small *ngIf="!referred.valid && referred.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="nameClient">NOMBRE CLIENTE:</label>
+      <input type="text" name="nameClient" #nameClient="ngModel" [(ngModel)] = "client.client_name"
+      required class="form-control"/>
+      <small *ngIf="!nameClient.valid && nameClient.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="emailClient">EMAIL CLIENTE:</label>
+      <input type="text" name="emailClient" #emailClient="ngModel" [(ngModel)] = "client.email_client"
+      required class="form-control"/>
+      <small *ngIf="!emailClient.valid && emailClient.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="birthClient">FECHA DE NACIMIENTO:</label>
+        <input matInput [matDatepicker]="picker" name="birthClient" #birthClient="ngModel" [(ngModel)] = "client.birth_client"
+        required class="form-control" style="width:92%; display:inline;">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      <small *ngIf="!birthClient.valid && birthClient.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="docClient">DOCUMENTO DEL CLIENTE:</label>
+      <input type="text" name="docClient" #docClient="ngModel" [(ngModel)] = "client.client_doc"
+      required class="form-control"/>
+      <small *ngIf="!docClient.valid && docClient.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="addressClient">DIRECCION:</label>
+      <input type="text" name="addressClient" #addressClient="ngModel" [(ngModel)] = "client.address"
+      required class="form-control"/>
+      <small *ngIf="!addressClient.valid && addressClient.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="cityClient">CIUDAD:</label>
+      <input type="text" name="cityClient" #cityClient="ngModel" [(ngModel)] = "client.city"
+      required class="form-control"/>
+      <small *ngIf="!cityClient.valid && cityClient.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="phoneClient">TELEFONO:</label>
+      <input type="text" name="phoneClient" #phoneClient="ngModel" [(ngModel)] = "client.phone"
+      required class="form-control"/>
+      <small *ngIf="!phoneClient.valid && phoneClient.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="cellphoneClient">CELULAR</label>
+      <input type="text" name="cellphoneClient" #cellphoneClient="ngModel" [(ngModel)] = "client.cell_phone"
+      required class="form-control"/>
+      <small *ngIf="!cellphoneClient.valid && cellphoneClient.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+
+    <input type="submit" value="{{page_title}}" class="btn btn-success" [disabled]="addClient.invalid"/>
+
+  </form>
+  <br/>
+</div>
