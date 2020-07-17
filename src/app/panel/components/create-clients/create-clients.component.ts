@@ -55,8 +55,6 @@ export class CreateClientsComponent implements OnInit {
     var dateBirth;
     dateBirth = this.client.birth_client;
     this.client.birth_client = dateBirth._i;
-    console.log("fuck");
-    console.log(this.client);
     this._clientService.addClient(this.token, this.client).subscribe(
       response => {
         if(response.client){
