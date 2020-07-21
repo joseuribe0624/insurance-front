@@ -19,8 +19,8 @@ const panelRoutes: Routes = [
       { path: 'listar-clientes', component: ListClientsComponent },
       { path: 'crear-cliente', component: CreateClientsComponent },
       { path: 'editar-cliente/:id', component: EditClientsComponent },
-      { path: 'listar-seguros', component: ListInsuranceComponent },
-      { path: 'crear-seguro', component: CreateInsuranceComponent },
+      { path: 'listar-seguros/:id', component: ListInsuranceComponent },
+      { path: 'crear-seguro/:id', component: CreateInsuranceComponent },
       { path: 'editar-seguro/:id', component: EditInsuranceComponent },
     ]
   }

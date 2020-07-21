@@ -1,1 +1,268 @@
-<p>create-insurance works!</p>
+<div class="col-lg-10">
+  <h3>{{page_title}}</h3>
+  <hr/>
+  <div class="alert alert-sucess col-md-5 mt-3" *ngIf="status == 'success' ">
+    La poliza se ha creado correctamente
+  </div>
+
+  <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error' ">
+    La poliza no se ha podido crear
+  </div>
+  <form #addPolicy="ngForm" (ngSubmit)="onSubmit(addPolicy)">
+
+    <div class="form-group">
+      <label for="policyType">TIPO DE POLIZA:</label>
+      <input type="text" name="policyType" #policyType="ngModel" [(ngModel)] = "policy.policy_type" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label for="nameInsured">NOMBRE ASEGURADO:</label>
+      <input type="text" name="nameInsured" #nameInsured="ngModel" [(ngModel)] = "policy.name_insured"
+      required class="form-control"/>
+      <small *ngIf="!nameInsured.valid && nameInsured.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="docInsured">DOCUMENTO DEL ASEGURADO:</label>
+      <input type="text" name="docInsured" #docInsured="ngModel" [(ngModel)] = "policy.insured_doc"
+      required class="form-control"/>
+      <small *ngIf="!docInsured.valid && docInsured.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+
+
+    <div class="form-group">
+      <label for="birthIndured">FECHA DE NACIMIENTO:</label>
+        <input matInput [matDatepicker]="picker" name="birthIndured" #birthIndured="ngModel" [(ngModel)] = "policy.birth_insured"
+         class="form-control" style="width:92%; display:inline;">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+
+    </div>
+
+    <div class="form-group">
+      <label for="updateDate">FECHA DE ACTUALIZACION:</label>
+        <input matInput [matDatepicker]="picker" name="updateDate" #updateDate="ngModel" [(ngModel)] = "policy.update_date"
+        required class="form-control" style="width:92%; display:inline;">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      <small *ngIf="!updateDate.valid && updateDate.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="plate">PLACA:</label>
+      <input type="text" name="plate" #plate="ngModel" [(ngModel)] = "policy.plate" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label for="model">MODELO VEHICULO:</label>
+      <input type="number" name="model" #model="ngModel" [(ngModel)] = "policy.model" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label for="brand">MARCA DEL VEHICULO:</label>
+      <input type="text" name="brand" #brand="ngModel" [(ngModel)] = "policy.brand"
+       class="form-control"/>
+    </div>
+
+
+    <div class="form-group">
+      <label for="line">LINEA DEL VEHICULO:</label>
+      <input type="text" name="line" #line="ngModel" [(ngModel)] = "policy.line"
+      class="form-control"/>
+
+    </div>
+
+    <div class="form-group">
+      <label for="engine">CILINDRAJE:</label>
+      <input type="text" name="engine" #engine="ngModel" [(ngModel)] = "policy.engine_cylinder"
+      class="form-control"/>
+
+    </div>
+
+    <div class="form-group">
+      <label for="typeVehicle">TIPO DE VEHICULO:</label>
+      <input type="text" name="typeVehicle" #typeVehicle="ngModel" [(ngModel)] = "policy.type_vehicle"
+      class="form-control"/>
+
+    </div>
+
+    <div class="form-group">
+      <label for="fasecolda">FASECOLDA:</label>
+      <input type="text" name="fasecolda" #fasecolda="ngModel" [(ngModel)] = "policy.fasecolda"
+      class="form-control"/>
+
+    </div>
+
+
+    <div class="form-group">
+      <label for="endorsement">ENDOSADO:</label>
+      <input type="text" name="endorsement" #endorsement="ngModel" [(ngModel)] = "policy.endorsement"
+      class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label for="nitbank">NIT DEL BANCO:</label>
+      <input type="text" name="nitbank" #nitbank="ngModel" [(ngModel)] = "policy.nit_bank"
+      class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label for="hunter">CAZADOR:</label>
+      <select type="text" name="hunter" #hunter="ngModel" [(ngModel)] = "policy.hunter"
+      class="form-control">
+        <option>Si</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="serie">NUMERO DE SERIE:</label>
+      <input type="text" name="serie" #serie="ngModel" [(ngModel)] = "policy.serie"
+      class="form-control"/>
+
+    </div>
+
+    <div class="form-group">
+      <label for="motor">NUMERO DE MOTOR:</label>
+      <input type="text" name="motor" #motor="ngModel" [(ngModel)] = "policy.motor"
+      class="form-control"/>
+
+    </div>
+
+
+    <div class="form-group">
+      <label for="address">DIRECCION BIEN ASEGURADO:</label>
+      <input type="text" name="address" #address="ngModel" [(ngModel)] = "policy.address_property"
+      class="form-control"/>
+
+    </div>
+
+    <div class="form-group">
+      <label for="state">ESTADO POLIZA:</label>
+      <select type="text"  name="state" #state="ngModel" [(ngModel)] = "policy.state"
+      class="form-control">
+        <option>Expedida</option>
+        <option>Anulada</option>
+        <option>Cancelada</option>
+        <option>Renovacion</option>
+        <option>Cotizada</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="numberPolicy">NUMERO DE POLIZA:</label>
+      <input type="text" name="numberPolicy" #numberPolicy="ngModel" [(ngModel)] = "policy.number_policy"
+      class="form-control"/>
+
+    </div>
+
+    <div class="form-group">
+      <label for="issued">FECHA DE EXPEDICION:</label>
+        <input matInput [matDatepicker]="picker" name="issued" #issued="ngModel" [(ngModel)] = "policy.issued"
+        required class="form-control" style="width:92%; display:inline;">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      <small *ngIf="!issued.valid && issued.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="policyStart">FECHA DE INICIO DE POLIZA:</label>
+        <input matInput [matDatepicker]="picker" name="policyStart" #policyStart="ngModel" [(ngModel)] = "policy.policy_start"
+        required class="form-control" style="width:92%; display:inline;">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      <small *ngIf="!policyStart.valid && policyStart.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="policyEnd">FECHA DE FINALIZACION DE POLIZA:</label>
+        <input matInput [matDatepicker]="picker" name="policyEnd" #policyEnd="ngModel" [(ngModel)] = "policy.policy_end"
+        required class="form-control" style="width:92%; display:inline;">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      <small *ngIf="!policyEnd.valid && policyEnd.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="valuePrima">VALOR DE LA PRIMA:</label>
+      <input type="number" name="valuePrima" #valuePrima="ngModel" [(ngModel)] = "policy.value_prima"
+      class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label for="paymentType">MES DE VENCIMIENTO:</label>
+      <select  type="text" class="form-control"  name="paymentType" #paymentType="ngModel" [(ngModel)] = "policy.payment_type"
+      required class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+      </select>
+      <small *ngIf="!paymentType.valid && paymentType.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="soatExpiration">FECHA DE VENCIMIENTO DEL SOAT:</label>
+        <input matInput [matDatepicker]="picker" name="soatExpiration" #soatExpiration="ngModel" [(ngModel)] = "policy.soat_expiration"
+        required class="form-control" style="width:92%; display:inline;">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      <small *ngIf="!soatExpiration.valid && soatExpiration.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="rtmExpiration">FECHA DE VENCIMIENTO DEL RTM:</label>
+        <input matInput [matDatepicker]="picker" name="rtmExpiration" #rtmExpiration="ngModel" [(ngModel)] = "policy.rtm_expiration"
+        required class="form-control" style="width:92%; display:inline;">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      <small *ngIf="!rtmExpiration.valid && rtmExpiration.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="observations">OBSERVACIONES:</label>
+      <textarea type="number" name="observations" #observations="ngModel" [(ngModel)] = "policy.observation"
+      required class="form-control"></textarea>
+      <small *ngIf="!observations.valid && observations.touched" class="invalid-feedback d-block">
+        se debe llenar campo
+      </small>
+    </div>
+
+    <input type="submit" value="{{page_title}}" class="btn btn-success" [disabled]="addPolicy.invalid"/>
+
+  </form>
+  <br/>
+</div>

@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor = "let client of clients">
+      <tr *ngFor = "let client of clients"  [routerLink] = "['/panel/listar-seguros', client._id]">
         <td>{{client.referred_from}}</td>
         <td>{{client.client_name}}</td>
         <td>{{client.email_client}}</td>

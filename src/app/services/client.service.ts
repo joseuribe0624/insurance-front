@@ -27,4 +27,14 @@ export class ClientService{
 
     return this._http.get(this.url+'get_clients/'+userId, {headers:headers});
   }
+
+  getClient(token,userId): Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type', 'application/json')
+                                  .set('Authorization', token);
+
+    return this._http.get(this.url+'get_client/'+userId, {headers:headers});
+  }
+
+
+
 }
