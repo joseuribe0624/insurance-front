@@ -38,7 +38,7 @@
       <label for="birthIndured">FECHA DE NACIMIENTO:</label>
         <input matInput [matDatepicker]="picker" name="birthIndured" #birthIndured="ngModel" [(ngModel)] = "policy.birth_insured"
          class="form-control" style="width:92%; display:inline;">
-        <mat-datepicker-toggle matSuffix [for]="picker">
+         <mat-datepicker-toggle matSuffix [for]="picker">
         </mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
 
@@ -46,11 +46,11 @@
 
     <div class="form-group">
       <label for="updateDate">FECHA DE ACTUALIZACION:</label>
-        <input matInput [matDatepicker]="picker" name="updateDate" #updateDate="ngModel" [(ngModel)] = "policy.update_date"
+        <input matInput [matDatepicker]="picker2" name="updateDate" #updateDate="ngModel" [(ngModel)] = "policy.update_date"
         required class="form-control" style="width:92%; display:inline;">
-        <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker2">
         </mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker #picker2></mat-datepicker>
       <small *ngIf="!updateDate.valid && updateDate.touched" class="invalid-feedback d-block">
         se debe llenar campo
       </small>
@@ -166,11 +166,11 @@
 
     <div class="form-group">
       <label for="issued">FECHA DE EXPEDICION:</label>
-        <input matInput [matDatepicker]="picker" name="issued" #issued="ngModel" [(ngModel)] = "policy.issued"
+        <input matInput [matDatepicker]="picker3" name="issued" #issued="ngModel" [(ngModel)] = "policy.issued"
         required class="form-control" style="width:92%; display:inline;">
-        <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker3">
         </mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker #picker3></mat-datepicker>
       <small *ngIf="!issued.valid && issued.touched" class="invalid-feedback d-block">
         se debe llenar campo
       </small>
@@ -178,11 +178,11 @@
 
     <div class="form-group">
       <label for="policyStart">FECHA DE INICIO DE POLIZA:</label>
-        <input matInput [matDatepicker]="picker" name="policyStart" #policyStart="ngModel" [(ngModel)] = "policy.policy_start"
+        <input matInput [matDatepicker]="picker4" name="policyStart" #policyStart="ngModel" [(ngModel)] = "policy.policy_start"
         required class="form-control" style="width:92%; display:inline;">
-        <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker4">
         </mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker #picker4></mat-datepicker>
       <small *ngIf="!policyStart.valid && policyStart.touched" class="invalid-feedback d-block">
         se debe llenar campo
       </small>
@@ -190,11 +190,11 @@
 
     <div class="form-group">
       <label for="policyEnd">FECHA DE FINALIZACION DE POLIZA:</label>
-        <input matInput [matDatepicker]="picker" name="policyEnd" #policyEnd="ngModel" [(ngModel)] = "policy.policy_end"
+        <input matInput [matDatepicker]="picker5" name="policyEnd" #policyEnd="ngModel" [(ngModel)] = "policy.policy_end"
         required class="form-control" style="width:92%; display:inline;">
-        <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker5">
         </mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker #picker5></mat-datepicker>
       <small *ngIf="!policyEnd.valid && policyEnd.touched" class="invalid-feedback d-block">
         se debe llenar campo
       </small>
@@ -207,8 +207,14 @@
     </div>
 
     <div class="form-group">
-      <label for="paymentType">MES DE VENCIMIENTO:</label>
-      <select  type="text" class="form-control"  name="paymentType" #paymentType="ngModel" [(ngModel)] = "policy.payment_type"
+      <label for="paymentType">METODO DE PAGO:</label>
+      <input type="text" name="paymentType" #paymentType="ngModel" [(ngModel)] = "policy.payment_type"
+      class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label for="endMonth">MES DE VENCIMIENTO:</label>
+      <select  type="text" class="form-control"  name="endMonth" #endMonth="ngModel" [(ngModel)] = "policy.policy_renovation_month"
       required class="form-control">
         <option>1</option>
         <option>2</option>
@@ -223,18 +229,18 @@
         <option>11</option>
         <option>12</option>
       </select>
-      <small *ngIf="!paymentType.valid && paymentType.touched" class="invalid-feedback d-block">
+      <small *ngIf="!endMonth.valid && endMonth.touched" class="invalid-feedback d-block">
         se debe llenar campo
       </small>
     </div>
 
     <div class="form-group">
       <label for="soatExpiration">FECHA DE VENCIMIENTO DEL SOAT:</label>
-        <input matInput [matDatepicker]="picker" name="soatExpiration" #soatExpiration="ngModel" [(ngModel)] = "policy.soat_expiration"
+        <input matInput [matDatepicker]="picker6" name="soatExpiration" #soatExpiration="ngModel" [(ngModel)] = "policy.soat_expiration"
         required class="form-control" style="width:92%; display:inline;">
-        <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker6">
         </mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker #picker6></mat-datepicker>
       <small *ngIf="!soatExpiration.valid && soatExpiration.touched" class="invalid-feedback d-block">
         se debe llenar campo
       </small>
@@ -242,11 +248,11 @@
 
     <div class="form-group">
       <label for="rtmExpiration">FECHA DE VENCIMIENTO DEL RTM:</label>
-        <input matInput [matDatepicker]="picker" name="rtmExpiration" #rtmExpiration="ngModel" [(ngModel)] = "policy.rtm_expiration"
+        <input matInput [matDatepicker]="picker7" name="rtmExpiration" #rtmExpiration="ngModel" [(ngModel)] = "policy.rtm_expiration"
         required class="form-control" style="width:92%; display:inline;">
-        <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker7">
         </mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker #picker7></mat-datepicker>
       <small *ngIf="!rtmExpiration.valid && rtmExpiration.touched" class="invalid-feedback d-block">
         se debe llenar campo
       </small>

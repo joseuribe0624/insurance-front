@@ -42,7 +42,6 @@ export class ListClientsComponent implements OnInit {
       response => {
         if(response.clients){
           this.clients = response.clients;
-
         }
       },
       error => {

@@ -39,19 +39,22 @@ export class ListInsuranceComponent implements OnInit {
   }
 
   getInsurances(){
+
     this._route.params.subscribe(params => {
       this.clientId = params['id'];
       let id = params['id'];
+      console.log(id);
       this._insuranceService.getInsuranceByClient(this.token, id).subscribe(
         response => {
-          if(response.insurances){
-            this.insurances = response.insurances;
+          if(response.policies){
+            this.insurances = response.policies;
           }
         },
         error => {
           console.log(error);
         }
       );
+
     });
   }
 

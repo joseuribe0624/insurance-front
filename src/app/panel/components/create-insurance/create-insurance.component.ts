@@ -53,36 +53,42 @@ export class CreateInsuranceComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  converter(val):any{
+    let con_date;
+    con_date = val;
+    con_date = con_date.toISOString();
+    con_date = con_date.split("T");
+    return con_date[0];
+  }
+
   onSubmit(form){
-    let birth_in;
-    let policy_start;
-    let policy_end;
-    let soat_expiration;
-    let rtm_expiration;
-    birth_in = this.policy.birth_insured;
-    this.policy.birth_insured = birth_in._i;
-    policy_start = this.policy.policy_start;
-    this.policy.policy_start = policy_start._i;
-    policy_end = this.policy.policy_end;
-    this.policy.policy_end = policy_end._i;
-    soat_expiration = this.policy.soat_expiration;
-    this.policy.soat_expiration = soat_expiration._i;
-    rtm_expiration = this.policy.rtm_expiration;
-    this.policy.rtm_expiration = rtm_expiration._i;
+    this.policy.birth_insured = this.converter(this.policy.birth_insured);
+    this.policy.policy_start = this.converter(this.policy.policy_start);
+    this.policy.policy_end = this.converter(this.policy.policy_end);
+    this.policy.soat_expiration = this.converter(this.policy.soat_expiration);
+    this.policy.rtm_expiration = this.converter(this.policy.rtm_expiration);
+    this.policy.update_date = this.converter(this.policy.update_date);
+    this.policy.issued = this.converter(this.policy.issued);
 
     this._route.params.subscribe(params => {
       let clientId = params['id'];
       this._insuranceService.addPolicy(this.token, this.policy, clientId).subscribe(
         response => {
           if(response.policy){
+            console.log(this.policy);
+            console.log("si");
             this.status = 'success';
             this.policy = response.policy;
-            this._router.navigate(['/panel/listar-seguros/clientId']);
+            this._router.navigate(['/panel/listar-seguros/'+clientId]);
           }else{
+            console.log(this.policy);
+            console.log("2");
             this.status = 'error';
           }
         },
         error => {
+          console.log(this.policy);
+          console.log("3");
           this.status = 'error';
           console.log(error);
         }

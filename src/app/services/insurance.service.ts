@@ -18,7 +18,7 @@ export class InsuranceService{
     let params = JSON.stringify(policy);
     let headers = new HttpHeaders().set('Content-type', 'application/json')
                                    .set('Authorization', token);
-    return this._http.post(this.url+'create_policy'+clientId, params, {headers: headers});
+    return this._http.post(this.url+'create_policy/'+clientId, params, {headers: headers});
   }
 
   getInsuranceByClient(token,clientId): Observable<any>{

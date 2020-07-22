@@ -28,13 +28,20 @@ export class ClientService{
     return this._http.get(this.url+'get_clients/'+userId, {headers:headers});
   }
 
-  getClient(token,userId): Observable<any>{
+  getClient(token,clientId): Observable<any>{
     let headers = new HttpHeaders().set('Content-Type', 'application/json')
                                   .set('Authorization', token);
 
-    return this._http.get(this.url+'get_client/'+userId, {headers:headers});
+    return this._http.get(this.url+'get_client/'+clientId, {headers:headers});
   }
 
+  update(token, id, client):Observable<any>{
+    let params = JSON.stringify(client);
+    let headers = new HttpHeaders().set('Content-type', 'application/json')
+                                   .set('Authorization', token);
+    return this._http.put(this.url+'update_client/'+id,params, {headers: headers});
+
+  }
 
 
 }
