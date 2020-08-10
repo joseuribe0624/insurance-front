@@ -8,6 +8,7 @@ import { EditClientsComponent } from './components/edit-clients/edit-clients.com
 import { CreateInsuranceComponent } from './components/create-insurance/create-insurance.component';
 import { EditInsuranceComponent } from './components/edit-insurance/edit-insurance.component';
 import { ListInsuranceComponent } from './components/list-insurance/list-insurance.component';
+import { ListExpiredComponent } from './components/list-expired/list-expired.component';
 import { MainComponent } from './components/main/main.component';
 
 const panelRoutes: Routes = [
@@ -22,6 +23,7 @@ const panelRoutes: Routes = [
       { path: 'listar-seguros/:id', component: ListInsuranceComponent },
       { path: 'crear-seguro/:id', component: CreateInsuranceComponent },
       { path: 'editar-seguro/:id', component: EditInsuranceComponent },
+      { path: 'listar-vencer', component: ListExpiredComponent },
     ]
   }
 ]

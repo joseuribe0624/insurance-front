@@ -13,6 +13,8 @@ import { EditClientsComponent } from './components/edit-clients/edit-clients.com
 import { CreateInsuranceComponent } from './components/create-insurance/create-insurance.component';
 import { EditInsuranceComponent } from './components/edit-insurance/edit-insurance.component';
 import { ListInsuranceComponent } from './components/list-insurance/list-insurance.component';
+import { ListExpiredComponent } from './components/list-expired/list-expired.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MAT_LABEL_GLOBAL_OPTIONS, MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -21,6 +23,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 //servicios
 //ng module
@@ -32,7 +35,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     EditClientsComponent,
     CreateInsuranceComponent,
     EditInsuranceComponent,
-    ListInsuranceComponent
+    ListInsuranceComponent,
+    ListExpiredComponent
   ],
   imports : [
     CommonModule,
@@ -56,6 +60,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     CreateInsuranceComponent,
     EditInsuranceComponent,
     ListInsuranceComponent,
+    ListExpiredComponent,
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonToggleModule,
