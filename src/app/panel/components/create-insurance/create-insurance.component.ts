@@ -47,7 +47,7 @@ export class CreateInsuranceComponent implements OnInit {
     this.page_title = 'Crear nueva poliza';
     this.identity = this._userService.getIdentity();
     this.token =  this._userService.getToken();
-    this.policy = new Policy('','',this.identity.email,'','','','','','',0,'','','','','','','','','','','','','','','','',0,'',0,'','','');
+    this.policy = new Policy('','',this.identity._id,this.identity.email,'','','','','','',0,'','','','','','','','','','','','','','','','',0,'',0,'','','');
    }
 
   ngOnInit(): void {

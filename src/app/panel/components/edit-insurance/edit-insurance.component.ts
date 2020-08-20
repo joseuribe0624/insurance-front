@@ -43,7 +43,7 @@ export class EditInsuranceComponent implements OnInit {
     this.page_title = 'Editar poliza';
     this.identity = this._userService.getIdentity();
     this.token =  this._userService.getToken();
-    this.policy = new Policy('','','','','','','','','',0,'','','','','','','','','','','','','','','','',0,'',0,'','','');
+    this.policy = new Policy('','','','','','','','','','',0,'','','','','','','','','','','','','','','','',0,'',0,'','','');
   }
 
   ngOnInit(): void {

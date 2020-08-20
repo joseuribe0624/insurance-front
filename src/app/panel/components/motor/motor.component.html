@@ -3,37 +3,11 @@
     <div class="col-lg-9">
       <h3>{{page_title}}</h3>
     </div>
+    <div class="col-lg-3">
+      <button type="button" class="btn btn-primary" [routerLink]= "['/panel/crear-seguro', clientId]" >CREAR POLIZA</button>
+    </div>
   </div>
   <hr/>
-  <div class="row">
-    <div class="col-md-4">
-      <label for="year">ANO:</label>
-      <input type="text"   class="form-control" [(ngModel)] = "year" />
-    </div>
-    <div class="col-md-4">
-      <label for="month">MES:</label>
-      <select type="text"  class="form-control" [(ngModel)] = "month">
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-      </select>
-    </div>
-    <div class="col-md-4">
-      <div style="position: absolute;">
-        <button type="submit"  class="btn btn-success" (click)="getInsurance()">BUSCAR</button>
-      </div>
-    </div>
-  </div>
-
   <table class="table table-hover table-responsive">
     <thead class="thead-default">
       <tr>

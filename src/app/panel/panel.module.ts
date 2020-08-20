@@ -23,6 +23,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MotorComponent } from './components/motor/motor.component';
+import { LifeComponent } from './components/life/life.component';
+import { HealthComponent } from './components/health/health.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 //servicios
@@ -36,7 +40,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     CreateInsuranceComponent,
     EditInsuranceComponent,
     ListInsuranceComponent,
-    ListExpiredComponent
+    ListExpiredComponent,
+    MotorComponent,
+    LifeComponent,
+    HealthComponent,
+    HomeComponent
   ],
   imports : [
     CommonModule,

@@ -18,6 +18,8 @@ export class ListExpiredComponent implements OnInit {
   public userId;
   public identity;
   public token;
+  public month:String;
+  public year:String;
 
   constructor(
     private _route: ActivatedRoute,
@@ -25,20 +27,22 @@ export class ListExpiredComponent implements OnInit {
     private _insuranceService : InsuranceService,
     private _userService : UserService,
   ) {
+    this.year = '';
+    this.month = '';
     this.identity = _userService.getIdentity();
-    this.page_title = "Polizas Proximas a vencer";
+    this.page_title = "Polizas Proximas a Vencer";
     this.identity = this._userService.getIdentity();
     this.userId = this.identity._id;
     this.token =  this._userService.getToken();
   }
 
   ngOnInit(): void {
-    this.getNextExp();
+
   }
 
-  getNextExp(){
+  getNextExp(date){
     this._route.params.subscribe(params => {
-      this._insuranceService.getInsuranceExpired(this.token, this.userId ).subscribe(
+      this._insuranceService.getInsuranceExpired(this.token, this.userId, date ).subscribe(
         response => {
           if(response.policies){
             this.insurances = response.policies;
@@ -50,6 +54,11 @@ export class ListExpiredComponent implements OnInit {
       );
 
     });
+  }
+
+  getInsurance(){
+    var date = this.year+"-"+this.month;
+    this.getNextExp(date);
   }
 
 

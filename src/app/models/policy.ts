@@ -2,6 +2,7 @@ export class Policy {
   constructor(
   public _id : string,
   public belongToClient: any,
+  public belongToUser: any,
   public email_client: string,
   //person that has the policy
   public policy_type: string,

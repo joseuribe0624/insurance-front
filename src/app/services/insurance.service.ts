@@ -28,11 +28,11 @@ export class InsuranceService{
     return this._http.get(this.url+'get_policies/'+clientId, {headers:headers});
   }
 
-  getInsuranceExpired(token,userId): Observable<any>{
+  getInsuranceExpired(token,userId, date): Observable<any>{
     let headers = new HttpHeaders().set('Content-Type', 'application/json')
                                   .set('Authorization', token);
 
-    return this._http.get(this.url+'policies_expired/'+userId, {headers:headers});
+    return this._http.get(this.url+'policies_expired/'+userId+'/'+date, {headers:headers});
   }
 
   getInsurance(token,insuranceId): Observable<any>{
