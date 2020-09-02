@@ -36,7 +36,8 @@ export class CreateInsuranceComponent implements OnInit {
   public token;
   //status para mostrar mensajes de error
   public status;
-
+  public type;
+  public clientId;
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
@@ -48,9 +49,15 @@ export class CreateInsuranceComponent implements OnInit {
     this.identity = this._userService.getIdentity();
     this.token =  this._userService.getToken();
     this.policy = new Policy('','',this.identity._id,this.identity.email,'','','','','','',0,'','','','','','','','','','','','','','','','',0,'',0,'','','');
-   }
+
+  }
 
   ngOnInit(): void {
+    this._route.params.subscribe(params => {
+      this.clientId = params['id'];
+      this.type = params['type'];
+    });
+      console.log(this.type);
   }
 
   converter(val):any{
@@ -70,30 +77,28 @@ export class CreateInsuranceComponent implements OnInit {
     this.policy.update_date = this.converter(this.policy.update_date);
     this.policy.issued = this.converter(this.policy.issued);
 
-    this._route.params.subscribe(params => {
-      let clientId = params['id'];
-      this._insuranceService.addPolicy(this.token, this.policy, clientId).subscribe(
-        response => {
-          if(response.policy){
-            console.log(this.policy);
-            console.log("si");
-            this.status = 'success';
-            this.policy = response.policy;
-            this._router.navigate(['/panel/listar-seguros/'+clientId]);
-          }else{
-            console.log(this.policy);
-            console.log("2");
-            this.status = 'error';
-          }
-        },
-        error => {
+
+    this._insuranceService.addPolicy(this.token, this.policy, this.clientId).subscribe(
+      response => {
+        if(response.policy){
           console.log(this.policy);
-          console.log("3");
+          console.log("si");
+          this.status = 'success';
+          this.policy = response.policy;
+          this._router.navigate(['/panel/listar-seguros/'+this.clientId]);
+        }else{
+          console.log(this.policy);
+          console.log("2");
           this.status = 'error';
-          console.log(error);
         }
-      );
-    });
+      },
+      error => {
+        console.log(this.policy);
+        console.log("3");
+        this.status = 'error';
+        console.log(error);
+      }
+    );
   }
 
 }

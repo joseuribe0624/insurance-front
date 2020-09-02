@@ -48,4 +48,11 @@ export class InsuranceService{
     return this._http.put(this.url+'update_policy/'+id,params, {headers: headers});
 
   }
+
+  delete(token, id):Observable<any>{
+    let headers = new HttpHeaders().set('Content-type', 'application/json')
+    .set('Authorization', token);
+    return this._http.delete(this.url+'delete_policy/'+id, {headers: headers});
+
+  }
 }

@@ -27,6 +27,8 @@ import { MotorComponent } from './components/motor/motor.component';
 import { LifeComponent } from './components/life/life.component';
 import { HealthComponent } from './components/health/health.component';
 import { HomeComponent } from './components/home/home.component';
+import { OthersComponent } from './components/others/others.component';
+import { PymeComponent } from './components/pyme/pyme.component';
 
 
 //servicios
@@ -44,7 +46,9 @@ import { HomeComponent } from './components/home/home.component';
     MotorComponent,
     LifeComponent,
     HealthComponent,
-    HomeComponent
+    HomeComponent,
+    OthersComponent,
+    PymeComponent
   ],
   imports : [
     CommonModule,

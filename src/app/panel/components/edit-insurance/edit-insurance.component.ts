@@ -7,6 +7,7 @@ import { ClientService } from '../../../services/client.service';
 import { MAT_DATE_FORMATS ,MAT_DATE_LOCALE, DateAdapter} from '@angular/material/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { InsuranceService } from 'src/app/services/insurance.service';
+import { Location } from '@angular/common';
 
 export const MY_FORMATS = {
   parse: {
@@ -38,7 +39,8 @@ export class EditInsuranceComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private _userService : UserService,
-    private _insuranceService : InsuranceService
+    private _insuranceService : InsuranceService,
+    private location: Location
   ) {
     this.page_title = 'Editar poliza';
     this.identity = this._userService.getIdentity();
@@ -114,6 +116,17 @@ export class EditInsuranceComponent implements OnInit {
       },
       error => {
         this.status = 'error';
+      }
+    );
+  }
+
+  deleteInsurance(){
+    this._insuranceService.delete(this.token, this.policy._id).subscribe(
+      response => {
+        this.location.back();
+      },
+      error => {
+        console.log(error);
       }
     );
   }

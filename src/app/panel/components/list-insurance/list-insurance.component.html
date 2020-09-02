@@ -1,81 +1,27 @@
-<div class="col-lg-12">
+<div>
+  <div class="col-lg-9">
+    <h3>{{page_title}}</h3>
+  </div>
   <div class="row">
-    <div class="col-lg-9">
-      <h3>{{page_title}}</h3>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary" [routerLink]= "['/panel/vehiculos', clientId]">VEHICULOS</button>
+    </div >
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary" [routerLink]= "['/panel/vida', clientId]">VIDA</button>
     </div>
-    <div class="col-lg-3">
-      <button type="button" class="btn btn-primary" [routerLink]= "['/panel/crear-seguro', clientId]" >CREAR POLIZA</button>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary" [routerLink]= "['/panel/salud', clientId]">SALUD</button>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary" [routerLink]= "['/panel/hogar', clientId]">HOGAR</button>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary" [routerLink]= "['/panel/pymes', clientId]">PYMES</button>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary" [routerLink]= "['/panel/otros', clientId]">OTROS</button>
     </div>
   </div>
-  <hr/>
-  <table class="table table-hover table-responsive">
-    <thead class="thead-default">
-      <tr>
-        <td>EMAIL CLIENTE</td>
-        <td>TIPO POLIZA</td>
-        <td>ASEGURADO</td>
-        <td>DOCUMENTO ASEGURADO</td>
-        <td>FECHA NACIMIENTO</td>
-        <td>FECHA ACTUALIZACION</td>
-        <td>PLACA</td>
-        <td>MODELO</td>
-        <td>MARCA</td>
-        <td>LINEA</td>
-        <td>CILINDRAJE</td>
-        <td>TIPO VEHICULO</td>
-        <td>FASECOLDA</td>
-        <td>NIT BANCO</td>
-        <td>CAZADOR</td>
-        <td>SERIE</td>
-        <td>MOTOR</td>
-        <td>DIRECCION BIEN ASEGURADO</td>
-        <td>CONCEPTO</td>
-        <td>NUMERO POLIZA</td>
-        <td>EMITE POLIZA</td>
-        <td>INICIO DE POLIZA</td>
-        <td>FINALIZACION DE POLIZA</td>
-        <td>VALOR PRIMA</td>
-        <td>TIPO PAGO</td>
-        <td>MES DE RENOVACION POLIZA</td>
-        <td>VENCIMIENTO SOAT</td>
-        <td>VENCIMEINTO RTM</td>
-        <td>OBSERVACIONES</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor = "let insurance of insurances"  [routerLink] = "['/panel/editar-seguro', insurance._id]">
-        <td>{{insurance.email_client}}</td>
-        <td>{{insurance.policy_type}}</td>
-        <td>{{insurance.name_insured}}</td>
-        <td>{{insurance.insured_doc}}</td>
-        <td>{{insurance.birth_insured}}</td>
-        <td>{{insurance.update_date}}</td>
-        <td>{{insurance.plate}}</td>
-        <td>{{insurance.model}}</td>
-        <td>{{insurance.brand}}</td>
-        <td>{{insurance.line}}</td>
-        <td>{{insurance.engine_cylinder}}</td>
-        <td>{{insurance.type_vehicle}}</td>
-        <td>{{insurance.fasecolda}}</td>
-        <td>{{insurance.endorsement}}</td>
-        <td>{{insurance.nit_bank}}</td>
-        <td>{{insurance.hunter}}</td>
-        <td>{{insurance.serie}}</td>
-        <td>{{insurance.motor}}</td>
-        <td>{{insurance.address_property}}</td>
-        <td>{{insurance.state}}</td>
-        <td>{{insurance.number_policy}}</td>
-        <td>{{insurance.issued}}</td>
-        <td>{{insurance.policy_start}}</td>
-        <td>{{insurance.policy_end}}</td>
-        <td>{{insurance.value_prima}}</td>
-        <td>{{insurance.payment_type}}</td>
-        <td>{{insurance.policy_renovation_month}}</td>
-        <td>{{insurance.soat_expiration}}</td>
-        <td>{{insurance.rtm_expiration}}</td>
-        <td>{{insurance.observation}}</td>
-      </tr>
-    </tbody>
-  </table>
+
 
 </div>

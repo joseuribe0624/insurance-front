@@ -6,14 +6,13 @@ import { InsuranceService } from '../../../services/insurance.service';
 import { UserService } from '../../../services/user.service';
 import { ClientService } from '../../../services/client.service';
 
-
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-others',
+  templateUrl: './others.component.html',
+  styleUrls: ['./others.component.css'],
   providers: [ InsuranceService, UserService, ClientService ]
 })
-export class HomeComponent implements OnInit {
+export class OthersComponent implements OnInit {
   public page_title: string;
   public insurances: Array<Policy>;
   public clientId;
@@ -30,11 +29,11 @@ export class HomeComponent implements OnInit {
     private _clientService : ClientService,
     private _insuranceService : InsuranceService
   ){
-  this.page_title = 'Lista Seguros de Hogar';
+  this.page_title = 'Listar seguros';
   this.identity = this._userService.getIdentity();
   this.token =  this._userService.getToken();
-  this.type = 'casa';
-}
+  this.type = 'otro';
+  }
 
   ngOnInit(): void {
     this.getInsurances();

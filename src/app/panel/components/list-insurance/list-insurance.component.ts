@@ -35,27 +35,10 @@ export class ListInsuranceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getInsurances();
-  }
-
-  getInsurances(){
-
-    this._route.params.subscribe(params => {
+    this._route.params.subscribe(params =>{
       this.clientId = params['id'];
-      let id = params['id'];
-      console.log(id);
-      this._insuranceService.getInsuranceByClient(this.token, id).subscribe(
-        response => {
-          if(response.policies){
-            this.insurances = response.policies;
-          }
-        },
-        error => {
-          console.log(error);
-        }
-      );
-
     });
   }
+
 
 }

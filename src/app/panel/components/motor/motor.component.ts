@@ -21,6 +21,7 @@ export class MotorComponent implements OnInit {
   public token;
   //status para mostrar mensajes de error
   public status;
+  public type;
 
   constructor(
     private _route: ActivatedRoute,
@@ -32,6 +33,7 @@ export class MotorComponent implements OnInit {
   this.page_title = 'Listar Seguros vehiculos de motor';
   this.identity = this._userService.getIdentity();
   this.token =  this._userService.getToken();
+  this.type = 'vehiculos';
   }
 
   ngOnInit(): void {

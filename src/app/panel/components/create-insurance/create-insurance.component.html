@@ -15,7 +15,7 @@
       <input type="text" name="policyType" #policyType="ngModel" [(ngModel)] = "policy.policy_type" class="form-control"/>
     </div>
 
-    <div class="form-group">
+    <div  class="form-group">
       <label for="nameInsured">NOMBRE ASEGURADO:</label>
       <input type="text" name="nameInsured" #nameInsured="ngModel" [(ngModel)] = "policy.name_insured"
       required class="form-control"/>
@@ -56,45 +56,45 @@
       </small>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" *ngIf="type=='vehiculos'">
       <label for="plate">PLACA:</label>
       <input type="text" name="plate" #plate="ngModel" [(ngModel)] = "policy.plate" class="form-control"/>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" *ngIf="type=='vehiculos'">
       <label for="model">MODELO VEHICULO:</label>
       <input type="number" name="model" #model="ngModel" [(ngModel)] = "policy.model" class="form-control"/>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" *ngIf="type=='vehiculos'">
       <label for="brand">MARCA DEL VEHICULO:</label>
       <input type="text" name="brand" #brand="ngModel" [(ngModel)] = "policy.brand"
        class="form-control"/>
     </div>
 
 
-    <div class="form-group">
+    <div class="form-group" *ngIf="type=='vehiculos'">
       <label for="line">LINEA DEL VEHICULO:</label>
       <input type="text" name="line" #line="ngModel" [(ngModel)] = "policy.line"
       class="form-control"/>
 
     </div>
 
-    <div class="form-group">
+    <div class="form-group" *ngIf="type=='vehiculos'">
       <label for="engine">CILINDRAJE:</label>
       <input type="text" name="engine" #engine="ngModel" [(ngModel)] = "policy.engine_cylinder"
       class="form-control"/>
 
     </div>
 
-    <div class="form-group">
+    <div class="form-group" *ngIf="type=='vehiculos'">
       <label for="typeVehicle">TIPO DE VEHICULO:</label>
       <input type="text" name="typeVehicle" #typeVehicle="ngModel" [(ngModel)] = "policy.type_vehicle"
       class="form-control"/>
 
     </div>
 
-    <div class="form-group">
+    <div class="form-group" *ngIf="type=='vehiculos'">
       <label for="fasecolda">FASECOLDA:</label>
       <input type="text" name="fasecolda" #fasecolda="ngModel" [(ngModel)] = "policy.fasecolda"
       class="form-control"/>
@@ -102,7 +102,7 @@
     </div>
 
 
-    <div class="form-group">
+    <div class="form-group" *ngIf="type=='vehiculos'">
       <label for="endorsement">ENDOSADO:</label>
       <input type="text" name="endorsement" #endorsement="ngModel" [(ngModel)] = "policy.endorsement"
       class="form-control"/>
@@ -114,7 +114,7 @@
       class="form-control"/>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" *ngIf="type=='vehiculos'">
       <label for="hunter">CAZADOR:</label>
       <select type="text" name="hunter" #hunter="ngModel" [(ngModel)] = "policy.hunter"
       class="form-control">
@@ -123,14 +123,14 @@
       </select>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" *ngIf="type=='vehiculos'">
       <label for="serie">NUMERO DE SERIE:</label>
       <input type="text" name="serie" #serie="ngModel" [(ngModel)] = "policy.serie"
       class="form-control"/>
 
     </div>
 
-    <div class="form-group">
+    <div class="form-group" *ngIf="type=='vehiculos'">
       <label for="motor">NUMERO DE MOTOR:</label>
       <input type="text" name="motor" #motor="ngModel" [(ngModel)] = "policy.motor"
       class="form-control"/>
@@ -234,7 +234,7 @@
       </small>
     </div>
 
-    <div class="form-group">
+    <div class="form-group"  *ngIf="type=='vehiculos'" >
       <label for="soatExpiration">FECHA DE VENCIMIENTO DEL SOAT:</label>
         <input matInput [matDatepicker]="picker6" name="soatExpiration" #soatExpiration="ngModel" [(ngModel)] = "policy.soat_expiration"
         required class="form-control" style="width:92%; display:inline;">
@@ -246,7 +246,7 @@
       </small>
     </div>
 
-    <div class="form-group">
+    <div class="form-group"  *ngIf="type=='vehiculos'">
       <label for="rtmExpiration">FECHA DE VENCIMIENTO DEL RTM:</label>
         <input matInput [matDatepicker]="picker7" name="rtmExpiration" #rtmExpiration="ngModel" [(ngModel)] = "policy.rtm_expiration"
         required class="form-control" style="width:92%; display:inline;">
